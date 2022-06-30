@@ -11,8 +11,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+use Bitrix\Main\Localization\Loc;
 ?>
-<div class="front-block__title"><?=GetMessage("TITLE")?></div>
+<div class="front-block__title"><?=Loc::getMessage("TITLE")?></div>
 <div class="front-block__content">
     <div class="faq">
         <? for ($i = 0; $i < 2; $i++): ?>

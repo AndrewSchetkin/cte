@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Обучающий центр",
-		"/training_center/",
+		"/about/",
 		Array(),
 		Array(),
 		""

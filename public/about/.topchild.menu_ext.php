@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Основные сведения",
-		"#",
+		"/about/",
 		Array(),
 		Array(),
 		""

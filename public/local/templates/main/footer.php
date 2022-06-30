@@ -4,7 +4,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Main\Page\Asset;
 
 ?>
-</main>
+<? if ($curPage === '/'): ?>
+    </main>
+<? else: ?>
+    </div>
+    </div>
+    </main>
+<? endif; ?>
+
 <footer class="footer" id="footer">
     <div class="container">
         <div class="footer__form question-block">
