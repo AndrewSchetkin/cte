@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("ЦТО KAMI");
+$APPLICATION->SetTitle("Сведения об образовательной организации");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"about_documents", 

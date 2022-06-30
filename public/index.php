@@ -1,6 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("ЦТО KAMI");
+$APPLICATION->SetPageProperty("title", "Главная title");
+$APPLICATION->SetTitle("Главная");
 ?>
 
     <section class="front-slider">
