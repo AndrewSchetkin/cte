@@ -16,7 +16,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Правила приема",
-		"#",
+		"/about/rules/",
 		Array(),
 		Array(),
 		""
