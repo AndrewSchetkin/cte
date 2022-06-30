@@ -29,24 +29,22 @@ use Bitrix\Main\Page\Asset;
         <div class="container">
             <a class="footer__logo" href="/"><img src="<?=SITE_TEMPLATE_PATH?>/img/logo.svg" alt="Логотип" width="158"/></a>
             <div class="footer__menu">
-                <ul>
-                    <li><a href="#">Обучающий центр</a>
-                        <ul>
-                            <li><a href="#">Основные сведения</a></li>
-                            <li><a href="#">Структура оргранизации</a></li>
-                            <li><a href="#">Правила приема</a></li>
-                            <li><a href="#">Документы для выпускников</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Программы обучения</a>
-                        <ul>
-                            <li><a href="#">График обучения</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Трудоустройство</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
+                <? $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
+                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                    "CHILD_MENU_TYPE" => "botchild",    // Тип меню для остальных уровней
+                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                    "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                    "MENU_CACHE_GET_VARS" => array(    // Значимые переменные запроса
+                        0 => "",
+                    ),
+                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                    "MENU_CACHE_TYPE" => "N",    // Тип кеширования
+                    "MENU_CACHE_USE_GROUPS" => "N",    // Учитывать права доступа
+                    "ROOT_MENU_TYPE" => "bottom",    // Тип меню для первого уровня
+                    "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                ),
+                    false
+                ); ?>
             </div>
             <div class="footer__contacts">
                 <a class="footer__contacts-item footer__contacts-item_phone" href="tel:88008889900">8 (800)
