@@ -28,32 +28,51 @@ use Bitrix\Main\Page\Asset;
     <div class="footer__body">
         <div class="container">
             <a class="footer__logo" href="/"><img src="<?=SITE_TEMPLATE_PATH?>/img/logo.svg" alt="Логотип" width="158"/></a>
-            <div class="footer__menu">
-                <? $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
-                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
-                    "CHILD_MENU_TYPE" => "botchild",    // Тип меню для остальных уровней
-                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
-                    "MAX_LEVEL" => "2",    // Уровень вложенности меню
-                    "MENU_CACHE_GET_VARS" => array(    // Значимые переменные запроса
-                        0 => "",
-                    ),
-                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                    "MENU_CACHE_TYPE" => "N",    // Тип кеширования
-                    "MENU_CACHE_USE_GROUPS" => "N",    // Учитывать права доступа
-                    "ROOT_MENU_TYPE" => "bottom",    // Тип меню для первого уровня
-                    "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+            <? $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
+                "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                "CHILD_MENU_TYPE" => "botchild",    // Тип меню для остальных уровней
+                "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                "MAX_LEVEL" => "2",    // Уровень вложенности меню
+                "MENU_CACHE_GET_VARS" => array(    // Значимые переменные запроса
+                    0 => "",
                 ),
-                    false
-                ); ?>
-            </div>
+                "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                "MENU_CACHE_TYPE" => "N",    // Тип кеширования
+                "MENU_CACHE_USE_GROUPS" => "N",    // Учитывать права доступа
+                "ROOT_MENU_TYPE" => "bottom",    // Тип меню для первого уровня
+                "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+            ),
+                false
+            ); ?>
             <div class="footer__contacts">
                 <a class="footer__contacts-item footer__contacts-item_phone" href="tel:88008889900">8 (800)
                     888-99-00</a><a class="footer__contacts-item footer__contacts-item_mail" href="mailto:primerinfo@mail.ru" target="_blank">primerinfo@mail.ru</a><a class="footer__contacts-item footer__contacts-item_map" href="https://yandex.ru/maps/-/CCUNU0SjPD" target="_blank">г.
                     Москва, ул. Большая Семеновская, д. 40, стр. 13</a></div>
             <div class="footer__copyright">
-                <p>Вы принимаете условия <a href="#" target="_blank" rel="nofollow">политики конфиденциальности</a> и
-                    <a href="#" target="_blank" rel="nofollow">пользовательского соглашения</a> каждый раз, когда
-                    оставляете свои данные в любой форме обратной связи на сайте stanki.ru.</p><span>© Copyright 2022. Все права защищены.</span>
+                <div class="footer__copyright-text">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => SITE_TEMPLATE_PATH . '/include/copyright_text.php'
+                        )
+                    ); ?>
+                </div>
+                <span>
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => SITE_TEMPLATE_PATH . '/include/copyright.php'
+                        )
+                    ); ?>
+                </span>
             </div>
         </div>
     </div>
