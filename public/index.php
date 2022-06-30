@@ -178,31 +178,29 @@ $APPLICATION->SetTitle("ЦТО KAMI");
         <div class="container">
             <a class="cert-block__img" href="img/content/cert.jpg" data-fancybox="cert"><img src="<?=SITE_TEMPLATE_PATH?>/img/content/cert.jpg" alt="Сертификат"></a>
             <div class="cert-block__content">
-                <h2 class="cert-block__title"><span>Сертификат официального <br>представителя HN</span></h2>
+                <h2 class="cert-block__title"><span>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => SITE_TEMPLATE_PATH.'/include/mainpage/cert_title.php'
+                            )
+                        );?>
+                    </span></h2>
                 <div class="cert-block__text">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         "",
                         Array(
                             "AREA_FILE_SHOW" => "file",
-                            "AREA_FILE_SUFFIX" => "slogan",
+                            "AREA_FILE_SUFFIX" => "",
                             "EDIT_TEMPLATE" => "",
-                            "PATH" => SITE_TEMPLATE_PATH.'/include/mainpage/about_company.php'
+                            "PATH" => SITE_TEMPLATE_PATH.'/include/mainpage/cert_text.php'
                         )
                     );?>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                        </li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
