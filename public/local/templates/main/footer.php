@@ -1,4 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+
+use Bitrix\Main\Page\Asset;
+
+?>
 </main>
 <footer class="footer" id="footer">
     <div class="container">
@@ -55,9 +60,11 @@
         </div>
     </div>
 </footer>
-<script src="<?=SITE_TEMPLATE_PATH?>/js/vendor/swiper-bundle.min.js"></script>
-<script src="<?=SITE_TEMPLATE_PATH?>/js/vendor/fancybox.umd.js"></script>
-<script src="<?=SITE_TEMPLATE_PATH?>/js/mainBundle.js?1656531096047" defer="defer"></script>
-<script src="<?=SITE_TEMPLATE_PATH?>/js/vendor/demo.js?1656531096047" defer="defer"></script>
+<?php
+Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/swiper-bundle.min.js");
+Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/fancybox.umd.js");
+Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/mainBundle.js?1656531096047");
+Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/demo.js?1656531096047");
+?>
 </body>
 </html>
