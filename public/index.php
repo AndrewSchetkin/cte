@@ -180,6 +180,16 @@ $APPLICATION->SetTitle("ЦТО KAMI");
             <div class="cert-block__content">
                 <h2 class="cert-block__title"><span>Сертификат официального <br>представителя HN</span></h2>
                 <div class="cert-block__text">
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "slogan",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => SITE_TEMPLATE_PATH.'/include/mainpage/about_company.php'
+                        )
+                    );?>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
