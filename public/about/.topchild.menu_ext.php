@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Документы для выпускников",
-		"#",
+		"/about/graduate_documents/",
 		Array(),
 		Array(),
 		""
