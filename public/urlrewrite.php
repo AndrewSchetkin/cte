@@ -1,11 +1,19 @@
 <?php
 $arUrlRewrite=array (
-  0 => 
-  array (
-    'CONDITION' => '#^/rest/#',
-    'RULE' => '',
-    'ID' => NULL,
-    'PATH' => '/bitrix/services/rest/index.php',
-    'SORT' => 100,
-  ),
+    0 => 
+    array (
+        'CONDITION' => '#^/news/([0-9A-z_-]*)/\\?([^/]*)#',
+        'RULE' => 'ELEMENT_CODE=$1',
+        'ID' => 'bitrix:news.detail',
+        'PATH' => '/news/detail.php',
+        'SORT' => 100,
+    ),
+    2 => 
+    array (
+        'CONDITION' => '#^/news/([0-9A-z_-]*)/#',
+        'RULE' => 'ELEMENT_CODE=$1',
+        'ID' => 'bitrix:news.detail',
+        'PATH' => '/news/detail.php',
+        'SORT' => 100,
+    ),
 );
