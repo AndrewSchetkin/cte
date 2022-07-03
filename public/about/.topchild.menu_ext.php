@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Структура организации",
-		"#",
+		"/about/structure/",
 		Array(),
 		Array(),
 		""
