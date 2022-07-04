@@ -6,7 +6,11 @@ foreach ($arResult["ITEMS"] as $item) {
 }
 
 $sections_ids = array_keys($sections);
-unset($sections_ids[array_search("", $sections_ids)]);
+$wo_section_index = array_search("", $sections_ids);
+if ($wo_section_index !== false) {
+    unset($sections_ids[$wo_section_index]);
+}
+
 
 $sect_obj = CIBlockSection::GetList(
     [],
@@ -18,7 +22,7 @@ while ($sect_res = $sect_obj->Fetch()) {
     $sections[$sect_res["ID"]]["SECTION"] = $sect_res;
 }
 
-usort($sections, function ($a, $b) {
+usort($sections, function($a, $b) {
     if (!isset($a["SECTION"])) {
         return 1;
     }

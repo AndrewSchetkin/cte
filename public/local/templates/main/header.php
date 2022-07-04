@@ -76,6 +76,19 @@ $curPage = $APPLICATION->GetCurPage(false);
                 ),
                 false
             );?>
+            <?
+            // это детальная страница
+            $news_detail_page = strpos($curPage, "/news/") === 0 && $curPage !== "/news/";
+            if ($news_detail_page) {
+                echo '<div class="page__inner-head">';
+            }
+            ?>
             <h1 class="page__title"><?$APPLICATION->ShowTitle(false);?></h1>
+            <?
+            if ($news_detail_page) {
+                $APPLICATION->ShowViewContent('news_detail_date');
+                echo '</div>';
+            }
+            ?>
             <main class="page__content">
 <? endif; ?>
