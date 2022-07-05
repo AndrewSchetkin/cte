@@ -1,9 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("ЦТО KAMI");
+$APPLICATION->SetTitle("Учебные программы");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"",
+	"education_programs",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -13,7 +13,7 @@ $APPLICATION->SetTitle("ЦТО KAMI");
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "N",
 		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
+		"CACHE_GROUPS" => "N",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "N",
@@ -24,11 +24,11 @@ $APPLICATION->SetTitle("ЦТО KAMI");
 		"DISPLAY_PICTURE" => "N",
 		"DISPLAY_PREVIEW_TEXT" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("", ""),
+		"FIELD_CODE" => array("PREVIEW_TEXT",""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "1",
-		"IBLOCK_TYPE" => "mainpage",
+		"IBLOCK_ID" => "8",
+		"IBLOCK_TYPE" => "content",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
 		"MESSAGE_404" => "",
@@ -43,7 +43,7 @@ $APPLICATION->SetTitle("ЦТО KAMI");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("", ""),
+		"PROPERTY_CODE" => array("DURATION","FOR_BEGINNERS","COST","TYPE",""),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",

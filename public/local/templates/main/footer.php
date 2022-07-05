@@ -154,11 +154,37 @@ use Bitrix\Main\Page\Asset;
         </div>
     </div>
 </footer>
+<section class="modal" id="callbackModal" style="display: none;">
+    <div class="modal__body">
+        <div class="modal__header">
+            <div class="modal__title">Обратный звонок</div>
+        </div>
+        <div class="modal__content">
+            <form class="form form_modal js-form" action="/ajax/" method="post">
+                <div class="form__item">
+                    <input class="form__input" type="text" name="PROPERTY[NAME]" placeholder="Ваше имя *" autocomplete="off" required="required"/>
+                </div>
+                <div class="form__item">
+                    <input class="form__input" type="tel" name="PROPERTY[PHONE]" placeholder="Телефон *" required="required"/>
+                </div>
+                <div class="form__actions">
+                    <button class="btn btn_main" value="Заказать" type="submit">Отправить</button>
+                    <div class="form__item form__item_checkbox">
+                        <input id="inputSuggestion1" type="checkbox" checked="checked" required="required"/>
+                        <label for="inputSuggestion1">Согласен на обработку <a href="https://www.stanki.ru/politika/" target="_blank">персональных данных</a></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 <?php
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/swiper-bundle.min.js");
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/fancybox.umd.js");
+Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/datepicker-full.min.js");
+Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/inputmask.min.js");
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/mainBundle.js?1656531096047");
-Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/demo.js?1656531096047");
+//Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/vendor/demo.js?1656531096047");
 ?>
 </body>
 </html>

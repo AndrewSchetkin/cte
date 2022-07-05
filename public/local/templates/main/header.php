@@ -22,6 +22,7 @@ $curPage = $APPLICATION->GetCurPage(false);
         <?
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendor/swiper-bundle.min.css");
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendor/fancybox.css");
+        Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/vendor/datepicker.min.css");
         ?>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,12 +55,14 @@ $curPage = $APPLICATION->GetCurPage(false);
                 false
             ); ?>
             <div class="header__contacts">
-                <div class="header__contacts-item header__contacts-item_phone"><a href="tel:88008880099">8 (800)
-                        888-00-99</a></div>
+                <div class="header__contacts-item header__contacts-item_phone">
+                    <a href="tel:88008880099">8 (800) 888-00-99</a>
+                </div>
                 <div class="header__contacts-item header__contacts-item_mail">
-                    <a href="mailto:cte-kami@stanki.ru" target="_blank">cte-kami@stanki.ru</a></div>
+                    <a href="mailto:cte-kami@stanki.ru" target="_blank">cte-kami@stanki.ru</a>
+                </div>
             </div>
-            <button class="header__callback" type="button">Обратный звонок</button>
+            <button class="header__callback" type="button" data-fancybox="dialog" data-src="#callbackModal">Обратный звонок</button>
             <button class="header__burger" type="button">Открыть меню</button>
         </div>
     </header>
@@ -67,28 +70,28 @@ $curPage = $APPLICATION->GetCurPage(false);
     <main class="page page_front">
 <? else: ?>
     <div class="page page_inner">
-        <div class="container">
-            <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumbs", Array(
-                "START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
-                    "PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-                    "SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-                    "COMPONENT_TEMPLATE" => "breadcrumbs"
-                ),
-                false
-            );?>
-            <?
-            // это детальная страница
-            $news_detail_page = strpos($curPage, "/news/") === 0 && $curPage !== "/news/";
-            if ($news_detail_page) {
-                echo '<div class="page__inner-head">';
-            }
-            ?>
-            <h1 class="page__title"><?$APPLICATION->ShowTitle(false);?></h1>
-            <?
-            if ($news_detail_page) {
-                $APPLICATION->ShowViewContent('news_detail_date');
-                echo '</div>';
-            }
-            ?>
-            <main class="page__content">
+    <div class="container">
+    <? $APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumbs", array(
+        "START_FROM" => "0",    // Номер пункта, начиная с которого будет построена навигационная цепочка
+        "PATH" => "",    // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+        "SITE_ID" => "s1",    // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+        "COMPONENT_TEMPLATE" => "breadcrumbs"
+    ),
+        false
+    ); ?>
+    <?
+    // это детальная страница
+    $news_detail_page = strpos($curPage, "/news/") === 0 && $curPage !== "/news/";
+    if ($news_detail_page) {
+        echo '<div class="page__inner-head">';
+    }
+    ?>
+    <h1 class="page__title"><? $APPLICATION->ShowTitle(false); ?></h1>
+    <?
+    if ($news_detail_page) {
+        $APPLICATION->ShowViewContent('news_detail_date');
+        echo '</div>';
+    }
+    ?>
+    <main class="page__content">
 <? endif; ?>
