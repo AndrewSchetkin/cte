@@ -89,7 +89,7 @@ use Bitrix\Main\Page\Asset;
             <div class="question-block__subtitle">Оставьте заявку и получите консультацию на возникшие вопросы у нашего
                 специалиста
             </div>
-            <form class="question-block__form form form_question">
+            <form class="question-block__form form form_question js-form">
                 <div class="form__item">
                     <input type="text" name="NAME" placeholder="Ваше имя" required="required"/>
                 </div>

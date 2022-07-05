@@ -7,53 +7,30 @@ $aMenuLinks = array(
         array(),
         ""
     ),
-    array(
-        "Программирование и эксплуатация станков с ЧПУ HNC Токарная обработка",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
-    array(
-        "Программирование и эксплуатация станков с ЧПУ HNC Фрезерная обработка",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
-    array(
-        "Программирование и эксплуатация станков с ЧПУ HNC 5-осевая обработка",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
-    array(
-        "Работа с датчиками измерения инструмента и детали",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
-    array(
-        "Оператор станков с программным управлением",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
-    array(
-        "Обслуживание и сервис станков с ЧПУ HNC",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
-    array(
-        "Повышение разряда операторов",
-        "#",
-        array(),
-        array(),
-        ""
-    ),
 );
+
+$obCache = new CPHPCache();
+if ($obCache->InitCache(36000, serialize($arFilter), "/iblock/catalog")) {
+    //Если кеш существует, то его результат сразу будет выдан и не надо выполнять код с запросами к БД
+    $aMenuLinksTmp = $obCache->GetVars();
+} else {   //Если кеша нет, то выполнится код и сформируется кеш. В дальнейшем будет отдаваться переменная из кеша, а не выполняться этот код
+    $obCache->StartDataCache();
+    CModule::IncludeModule("iblock");
+    $aMenuLinksTmp = [];
+    $obj = CIBlockElement::GetList(
+        ["SORT" => "ASC"],
+        ["IBLOCK_ID" => 8, "ACTIVE" => "Y", "ACTIVE_DATE" => "Y"],
+        false,
+        false,
+        ["NAME", "DETAIL_PAGE_URL"]
+    );
+    while ($res = $obj->GetNext()) {
+        $aMenuLinksTmp[] = [
+            $res["NAME"],
+            $res["DETAIL_PAGE_URL"]
+        ];
+    }
+    $obCache->EndDataCache($aMenuLinksTmp);
+}
+
+$aMenuLinks = array_merge($aMenuLinks, $aMenuLinksTmp);
