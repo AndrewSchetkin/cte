@@ -11,7 +11,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
 use Bitrix\Main\Localization\Loc;
+
 ?>
 
 <div class="programs">
@@ -39,17 +41,20 @@ use Bitrix\Main\Localization\Loc;
                     <? endif; ?>
                     <? if ($item["PROPERTIES"]["FOR_BEGINNERS"]["VALUE"] === "Y"): ?>
                         <ul class="programs-item__excellence">
-                            <li><img src="<?=SITE_TEMPLATE_PATH?>/img/content/icon_1.png" alt="<?=Loc::getMessage("FOR_BEGINNERS_TITLE")?>"><span><?=Loc::getMessage("FOR_BEGINNERS_TITLE")?></span></li>
+                            <li>
+                                <img src="<?=SITE_TEMPLATE_PATH?>/img/content/icon_1.png" alt="<?=Loc::getMessage("FOR_BEGINNERS_TITLE")?>"><span><?=Loc::getMessage("FOR_BEGINNERS_TITLE")?></span>
+                            </li>
                         </ul>
                     <? endif; ?>
                 </div>
-                <div class="programs-item__calendar">
-                    <div class="programs-item__calendar-title"><?=Loc::getMessage("DATES_TITLE")?></div>
-                    <div class="programs-item__calendar-body">
-                        <!-- если даты не проставлены, то давай просто не добавлять data-dates атрибут-->
-                        <div class="programs-item__calendar-element" data-dates="07-05-2022,07-16-2022;07-27-2022,08-07-2022;08-13-2022,08-17-2022"></div>
+                <? if (is_array($item["PROPERTIES"]["PERIODS"]["VALUE"]) && !empty($item["PROPERTIES"]["PERIODS"]["VALUE"])): ?>
+                    <div class="programs-item__calendar">
+                        <div class="programs-item__calendar-title"><?=Loc::getMessage("DATES_TITLE")?></div>
+                        <div class="programs-item__calendar-body">
+                            <div class="programs-item__calendar-element" data-dates="<?=implode(";", $item["PROPERTIES"]["PERIODS"]["VALUE"])?>"></div>
+                        </div>
                     </div>
-                </div>
+                <? endif; ?>
             </div>
         <? endforeach; ?>
     </div>

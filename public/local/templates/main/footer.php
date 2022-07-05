@@ -89,7 +89,7 @@ use Bitrix\Main\Page\Asset;
             <div class="question-block__subtitle">Оставьте заявку и получите консультацию на возникшие вопросы у нашего
                 специалиста
             </div>
-            <form class="question-block__form form form_question js-form">
+            <form class="question-block__form form form_question js-form" action="/ajax/callback_form.php">
                 <div class="form__item">
                     <input type="text" name="NAME" placeholder="Ваше имя" required="required"/>
                 </div>
@@ -160,7 +160,7 @@ use Bitrix\Main\Page\Asset;
             <div class="modal__title">Обратный звонок</div>
         </div>
         <div class="modal__content">
-            <form class="form form_modal js-form" action="/ajax/" method="post">
+            <form class="form form_modal js-form" action="/ajax/callback_form.php" method="post">
                 <div class="form__item">
                     <input class="form__input" type="text" name="PROPERTY[NAME]" placeholder="Ваше имя *" autocomplete="off" required="required"/>
                 </div>
