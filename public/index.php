@@ -12,8 +12,10 @@ $APPLICATION->SetTitle("Главная");
                         <div class="front-slider__content">
                             <div class="front-slider__title">Центр технического обучения КАМИ</div>
                             <p class="front-slider__description">Время получить новые знания</p>
-                            <div class="front-slider__buttons"><a class="btn btn_main" href="#">Программы
-                                    обучения</a><a class="btn btn_light" href="#">Оставить заявку</a></div>
+                            <div class="front-slider__buttons">
+                                <a class="btn btn_main" href="/education_programs/">Программы обучения</a>
+                                <button class="btn btn_light" type="button" data-fancybox="" data-src="#requestModal">Оставить заявку</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -27,7 +29,7 @@ $APPLICATION->SetTitle("Главная");
                             <p class="front-slider__description">Время получить новые знания Время получить новые знания
                                 Время получить новые знания Время получить</p>
                             <div class="front-slider__buttons"><a class="btn btn_main" href="#">Программы
-                                    обучения</a><a class="btn btn_light" href="#">Оставить заявку</a></div>
+                                    обучения</a><button class="btn btn_light" type="button" data-fancybox="" data-src="#requestModal">Оставить заявку</button></div>
                         </div>
                     </div>
                 </div>

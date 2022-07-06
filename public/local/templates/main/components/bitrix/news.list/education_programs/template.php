@@ -36,9 +36,12 @@ use Bitrix\Main\Localization\Loc;
                     <? if ($item["PREVIEW_TEXT"]): ?>
                         <div class="programs-item__text"><?=$item["PREVIEW_TEXT"]?></div>
                     <? endif; ?>
-                    <? if ($item["PROPERTIES"]["COST"]["VALUE"]): ?>
-                        <div class="programs-item__price"><?=$item["PROPERTIES"]["COST"]["VALUE"]?></div>
-                    <? endif; ?>
+                    <div class="programs-item__offer">
+                        <? if ($item["PROPERTIES"]["COST"]["VALUE"]): ?>
+                            <div class="programs-item__price"><?=$item["PROPERTIES"]["COST"]["VALUE"]?></div>
+                        <? endif; ?>
+                        <button class="programs-item__btn js-program-btn btn btn_main btn_rounded" type="button" data-src="#offerModal"><?=Loc::getMessage("ORDER")?></button>
+                      </div>
                     <? if ($item["PROPERTIES"]["FOR_BEGINNERS"]["VALUE"] === "Y"): ?>
                         <ul class="programs-item__excellence">
                             <li>
