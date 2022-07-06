@@ -1,2 +1,3 @@
 <?php
-$MESS["MP_OUR_TEACHERS_TITLE"] = "Наши преподаватели";
+$MESS["MP_EDUCATION_PROGRAMS_TITLE"] = "Учебные программы";
+$MESS["EDUCATION_FORM"] = "форма обучения";

@@ -62,12 +62,23 @@ $curPage = $APPLICATION->GetCurPage(false);
                     <a href="mailto:cte-kami@stanki.ru" target="_blank">cte-kami@stanki.ru</a>
                 </div>
             </div>
-            <button class="header__callback" type="button" data-fancybox="dialog" data-src="#callbackModal">Обратный звонок</button>
+            <button class="header__callback" type="button" data-fancybox="dialog" data-src="#callbackModal">Обратный
+                звонок
+            </button>
             <button class="header__burger" type="button">Открыть меню</button>
         </div>
     </header>
 <? if ($curPage === '/'): ?>
     <main class="page page_front">
+    <?
+    include("include/mainpage/blocks/main_slider.php");
+    include("include/mainpage/blocks/education_programs.php");
+    include("include/mainpage/blocks/faq.php");
+    include("include/mainpage/blocks/cert.php");
+    include("include/mainpage/blocks/our_teachers.php");
+    include("include/mainpage/blocks/education_photos.php");
+    include("include/mainpage/blocks/news_carousel.php");
+    ?>
 <? else: ?>
     <div class="page page_inner">
     <div class="container">
