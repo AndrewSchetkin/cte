@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 use Bitrix\Main\Localization\Loc;
 ?>
-<div class="front-block__title"><?=Loc::getMessage("TITLE")?></div>
+<div class="front-block__title"><?=Loc::getMessage("PHOTO_EDUCATION_TITLE")?></div>
 <div class="front-block__content">
     <div class="gallery gallery_fw">
         <div class="swiper js-gallery-auto-items">

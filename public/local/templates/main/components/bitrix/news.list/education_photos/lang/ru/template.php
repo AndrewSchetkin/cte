@@ -1,3 +1,2 @@
 <?
-$MESS["TITLE"] = "Фото с обучения";
-?>
+$MESS["PHOTO_EDUCATION_TITLE"] = "Фото с обучения";
